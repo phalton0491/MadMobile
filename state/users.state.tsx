@@ -26,18 +26,6 @@ export const useProvideUsersContext = () => {
 
   const sortByCity = (e: MouseEvent, category: string) => {
     e.preventDefault();
-    const filteredSortedUsers = [];
-
-    switch (category) {
-      case SortingCategories.FIRST:
-      case SortingCategories.LAST:
-      case SortingCategories.EMAIL:
-      case SortingCategories.CITY:
-      case SortingCategories.STATE:
-      case SortingCategories.COUNTRY:
-      default:
-        setDisplayedUserList([...users]);
-    }
 
     const sortedUsers = users.sort((a: User, b: User) => {
       switch (category) {
