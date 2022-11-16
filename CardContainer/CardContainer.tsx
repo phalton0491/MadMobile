@@ -4,18 +4,20 @@ import { useUsersState } from '../state/users.state';
 import { User } from '../types/UserTypes';
 
 const CardContainer = () => {
-  const { users } = useUsersState();
+  const { displayedUserList } = useUsersState();
   React.useEffect(() => {
-    console.log('users', users);
+    console.log('users', displayedUserList);
   });
   return (
-    <div className="cardContainer">
-      {(users && users.length) > 0 ? (
-        users.map((user: User) => <Card key={user.cell} user={user} />)
+    <ul className="card-container">
+      {(displayedUserList && displayedUserList.length) > 0 ? (
+        displayedUserList.map((user: User) => (
+          <Card key={user.cell} user={user} />
+        ))
       ) : (
         <div>No Users Found</div>
       )}
-    </div>
+    </ul>
   );
 };
 

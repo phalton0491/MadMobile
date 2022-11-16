@@ -6,12 +6,15 @@ import { useUsersState } from '../state/users.state';
 import { UserInfo } from '../types/UserInfo';
 
 const MainContainer = () => {
-  const { setUsers } = useUsersState();
+  const { setUsers, setDisplayedUserList } = useUsersState();
   React.useEffect(() => {
-    getUsers().then((users: UserInfo) => setUsers(users.results));
+    getUsers().then((users: UserInfo) => {
+      setUsers(users.results);
+      setDisplayedUserList(users.results);
+    });
   }, []);
   return (
-    <div className="mainContainer">
+    <div className="main-container">
       <FilterBar />
       <CardContainer />
     </div>
