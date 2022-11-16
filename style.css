@@ -1,0 +1,40 @@
+h1,
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: palevioletred;
+  color: papayawhip;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
+}
+
+.mainContainer > .filterBar {
+  margin-bottom: 15px;
+}
+
+.mainContainer > .cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  grid-auto-rows: auto;
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 10px;
+  list-style-type: none;
+  justify-content: center;
+  text-align: center;
+}
+
+.mainContainer > .cardContainer > .card {
+  border: 2px solid papayawhip;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.47);
+  height: 150px;
+  padding-top: 15px;
+  text-align: center;
+  cursor: pointer;
+}
