@@ -1,15 +1,8 @@
 import * as React from 'react';
+import { MouseEvent } from 'react';
 import { User } from '../types/UserTypes';
 
-interface UsersState {
-  users: User[];
-  displayedUserList: User[];
-  setUsers: () => User[];
-  setDisplayedUserList: () => User[];
-  filterUsers: () => void;
-}
-
-export const UsersContext = React.createContext<UsersState | null>(null);
+export const UsersContext = React.createContext(null);
 
 export const useProvideUsersContext = () => {
   const [users, setUsers] = React.useState([]);
@@ -30,12 +23,23 @@ export const useProvideUsersContext = () => {
     return /\d/.test(keyword);
   };
 
-  const filterUsers = (keyword: string): void => {
+  const sortByCity = (e: MouseEvent) => {
+    e.preventDefault();
+    const filteredSortedUsers = [];
+    const sortedUsers = users.sort((a: User, b: User) => {
+      return a.location.city.localeCompare(b.location.city);
+    });
+    console.log('sortedUsers', sortedUsers);
+    setDisplayedUserList([...sortedUsers]);
+  };
+
+  const filterUsers = (keyword: string) => {
+    setDisplayedUserList(users);
     const filteredUsers = users.filter((user: User) => {
       if (isSearchingByNumber(keyword)) return user.phone.includes(keyword);
       return isSearchingByNameString(user, keyword.toLocaleLowerCase());
     });
-    setDisplayedUserList(filteredUsers);
+    setDisplayedUserList([...filteredUsers]);
   };
 
   return {
@@ -44,6 +48,7 @@ export const useProvideUsersContext = () => {
     setUsers,
     setDisplayedUserList,
     filterUsers,
+    sortByCity,
   };
 };
 

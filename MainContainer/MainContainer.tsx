@@ -9,6 +9,7 @@ const MainContainer = () => {
   const { setUsers, setDisplayedUserList } = useUsersState();
   React.useEffect(() => {
     getUsers().then((users: UserInfo) => {
+      console.log('triggered');
       setUsers(users.results);
       setDisplayedUserList(users.results);
     });
