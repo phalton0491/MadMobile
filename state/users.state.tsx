@@ -91,7 +91,7 @@ export const useProvideUsersContext = () => {
     e.preventDefault();
     let usersCopy = [...users];
     const findUserToEdit = usersCopy.find(
-      (user: User) => user.id.name === userId
+      (user: User) => user.id.value === userId
     );
     const indexOfUserToEdit = usersCopy.indexOf(findUserToEdit);
     usersCopy[indexOfUserToEdit] = {

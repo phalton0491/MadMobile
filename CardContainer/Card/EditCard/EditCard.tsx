@@ -31,7 +31,7 @@ const EditCard: React.FC<UserChildProps> = ({ user, setShowEditCard }) => {
             state.current,
             country.current,
             phone.current,
-            user.id.name
+            user.id.value
           );
           setShowEditCard(false);
         }}

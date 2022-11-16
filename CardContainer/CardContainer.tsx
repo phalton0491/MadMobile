@@ -5,9 +5,6 @@ import { User } from '../types/UserTypes';
 
 const CardContainer = () => {
   const { displayedUserList, users } = useUsersState();
-  React.useEffect(() => {
-    console.log('users', displayedUserList);
-  }, [displayedUserList]);
   return (
     <ul className="card-container">
       {(displayedUserList &&
