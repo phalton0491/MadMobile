@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { MouseEvent, ChangeEvent } from 'react';
+import { SortingCategories } from '../state/SortingCategories';
 import { useUsersState } from '../state/users.state';
 
 const FilterBar = () => {
@@ -21,22 +22,46 @@ const FilterBar = () => {
       <div className="sort">
         <h2>Sort By:</h2>
         <div className="buttons-container">
-          <button onClick={(e: MouseEvent<HTMLButtonElement>) => sortByCity(e)}>
+          <button
+            onClick={(e: MouseEvent<HTMLButtonElement>) =>
+              sortByCity(e, SortingCategories.FIRST)
+            }
+          >
             First
           </button>
-          <button onClick={(e: MouseEvent<HTMLButtonElement>) => sortByCity(e)}>
+          <button
+            onClick={(e: MouseEvent<HTMLButtonElement>) =>
+              sortByCity(e, SortingCategories.LAST)
+            }
+          >
             Last
           </button>
-          <button onClick={(e: MouseEvent<HTMLButtonElement>) => sortByCity(e)}>
+          <button
+            onClick={(e: MouseEvent<HTMLButtonElement>) =>
+              sortByCity(e, SortingCategories.EMAIL)
+            }
+          >
             Email
           </button>
-          <button onClick={(e: MouseEvent<HTMLButtonElement>) => sortByCity(e)}>
+          <button
+            onClick={(e: MouseEvent<HTMLButtonElement>) =>
+              sortByCity(e, SortingCategories.CITY)
+            }
+          >
             City
           </button>
-          <button onClick={(e: MouseEvent<HTMLButtonElement>) => sortByCity(e)}>
+          <button
+            onClick={(e: MouseEvent<HTMLButtonElement>) =>
+              sortByCity(e, SortingCategories.STATE)
+            }
+          >
             State
           </button>
-          <button onClick={(e: MouseEvent<HTMLButtonElement>) => sortByCity(e)}>
+          <button
+            onClick={(e: MouseEvent<HTMLButtonElement>) =>
+              sortByCity(e, SortingCategories.COUNTRY)
+            }
+          >
             Country
           </button>
         </div>

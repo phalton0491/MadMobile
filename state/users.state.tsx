@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { MouseEvent } from 'react';
 import { User } from '../types/UserTypes';
+import { SortingCategories } from './SortingCategories';
 
 export const UsersContext = React.createContext(null);
 
@@ -23,13 +24,39 @@ export const useProvideUsersContext = () => {
     return /\d/.test(keyword);
   };
 
-  const sortByCity = (e: MouseEvent) => {
+  const sortByCity = (e: MouseEvent, category: string) => {
     e.preventDefault();
     const filteredSortedUsers = [];
+
+    switch (category) {
+      case SortingCategories.FIRST:
+      case SortingCategories.LAST:
+      case SortingCategories.EMAIL:
+      case SortingCategories.CITY:
+      case SortingCategories.STATE:
+      case SortingCategories.COUNTRY:
+      default:
+        setDisplayedUserList([...users]);
+    }
+
     const sortedUsers = users.sort((a: User, b: User) => {
-      return a.location.city.localeCompare(b.location.city);
+      switch (category) {
+        case SortingCategories.FIRST:
+          return a.name.first.localeCompare(b.name.first);
+        case SortingCategories.LAST:
+          return a.name.last.localeCompare(b.name.last);
+        case SortingCategories.EMAIL:
+          return a.email.localeCompare(b.email);
+        case SortingCategories.CITY:
+          return a.location.city.localeCompare(b.location.city);
+        case SortingCategories.STATE:
+          return a.location.state.localeCompare(b.location.state);
+        case SortingCategories.COUNTRY:
+          return a.location.country.localeCompare(b.location.country);
+        default:
+          setDisplayedUserList([...users]);
+      }
     });
-    console.log('sortedUsers', sortedUsers);
     setDisplayedUserList([...sortedUsers]);
   };
 
