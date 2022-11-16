@@ -1,13 +1,33 @@
 import * as React from 'react';
-import { MouseEvent } from 'react';
+import { MouseEvent, SetStateAction } from 'react';
 import { User } from '../types/UserTypes';
 import { SortingCategories } from './SortingCategories';
 
-export const UsersContext = React.createContext(null);
+interface UsersInitialState {
+  users: User[];
+  displayedUserList: User[];
+  setUsers: React.Dispatch<SetStateAction<User[]>>;
+  setDisplayedUserList: React.Dispatch<SetStateAction<User[]>>;
+  filterUsers: (string) => void;
+  sortByCity: (e: MouseEvent, category: string) => void;
+  editUser: (
+    e: React.FormEvent,
+    first: string,
+    last: string,
+    email: string,
+    city: string,
+    state: string,
+    country: string,
+    phone: string,
+    userId: string
+  ) => void;
+}
+
+export const UsersContext = React.createContext<UsersInitialState>(null);
 
 export const useProvideUsersContext = () => {
-  const [users, setUsers] = React.useState([]);
-  const [displayedUserList, setDisplayedUserList] = React.useState([]);
+  const [users, setUsers] = React.useState<User[]>([]);
+  const [displayedUserList, setDisplayedUserList] = React.useState<User[]>([]);
 
   const isSearchingByNameString = (user: User, keyword: string): Boolean => {
     return (
@@ -85,7 +105,7 @@ export const useProvideUsersContext = () => {
       phone,
       location: {
         city,
-        Ccordinates: findUserToEdit.location.coodinates,
+        coordinates: findUserToEdit.location.coordinates,
         country,
         postcode: findUserToEdit.location.postcode,
         state,

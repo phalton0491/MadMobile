@@ -1,6 +1,6 @@
 export interface Location {
   city: string;
-  Ccordinates: Coordinates;
+  coordinates: Coordinates;
   country: string;
   postcode: number;
   state: string;

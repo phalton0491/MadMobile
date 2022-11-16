@@ -12,7 +12,7 @@ const ButtonTextCategories = {
 };
 
 const Card: React.FC<UserProps> = ({ user }) => {
-  const [showEditCard, setShowEditCard] = React.useState(false);
+  const [showEditCard, setShowEditCard] = React.useState<boolean>(false);
 
   return (
     <li className="card">

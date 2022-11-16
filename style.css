@@ -61,8 +61,8 @@ body {
 .main-container > .card-container {
   padding-left: 0;
   display: grid;
-  grid-template-columns: repeat(3, 30%);
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(3, auto);
+  grid-auto-rows: minmax(auto, 500px);
   grid-gap: 10px;
   list-style-type: none;
   justify-content: center;
@@ -103,7 +103,8 @@ body {
 }
 
 .main-container > .card-container > .card > .avatar-container > img {
-  border-radius: 50px;
+  border-radius: 60px;
+  width: 25%;
 }
 
 .main-container > .card-container > .card > .user-info-container {
@@ -111,6 +112,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  word-break: break-all;
 }
 
 .main-container > .card-container > .card > .edit-card-form > form {
@@ -178,4 +180,97 @@ body {
   > div
   > p:first-child {
   margin-top: 5px;
+}
+/* media queries */
+@media (max-width: 1024px) {
+  .main-container > .card-container {
+    grid-template-columns: repeat(2, 50%);
+  }
+
+  .main-container > .card-container > .card > .edit-card-form > form {
+    flex-direction: column;
+  }
+
+  .main-container > .filter-bar {
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  .main-container
+    > .card-container
+    > .card
+    > .edit-card-form
+    > form
+    > .contact-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-container
+    > .card-container
+    > .card
+    > .edit-card-form
+    > form
+    > div
+    > input {
+    width: 90%;
+  }
+
+  .main-container
+    > .card-container
+    > .card
+    > .edit-card-form
+    > form
+    > .submission {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container > .card-container {
+    grid-template-columns: repeat(2, 40%);
+  }
+
+  .main-container > .card-container > .card > .user-info-container {
+    flex-direction: column;
+  }
+  .main-container > .card-container > .card > .avatar-container {
+    flex-direction: column;
+  }
+
+  .main-container > .card-container > .card > .avatar-container > img {
+    width: 35%;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-container > .card-container {
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  .main-container > .card-container > .card > .user-info-container {
+    flex-direction: column;
+  }
+
+  .main-container
+    > .card-container
+    > .card
+    > .edit-card-form
+    > form
+    > .submission
+    > button {
+    width: 100%;
+  }
+
+  .main-container
+    > .card-container
+    > .card
+    > .edit-card-form
+    > form
+    > div
+    > input {
+    width: 100%;
+    padding: 0;
+    margin: 5px auto;
+    height: 14px;
+  }
 }

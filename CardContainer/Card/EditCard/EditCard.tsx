@@ -45,7 +45,6 @@ const EditCard: React.FC<UserChildProps> = ({ user, setShowEditCard }) => {
             type="text"
             name="first"
           />
-          <br />
           <input
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               (last.current = e.target.value)
