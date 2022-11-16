@@ -7,7 +7,7 @@ interface UserProps {
 }
 
 const ButtonTextCategories = {
-  EDIT: 'Edit',
+  EDIT: 'Edit Profile',
   CANCEL: 'Cancel',
 };
 
@@ -16,7 +16,9 @@ const Card: React.FC<UserProps> = ({ user }) => {
 
   return (
     <li className="card">
+      <h2>{user.name.first}</h2>
       <div className="avatar-container">
+        <img src={user.picture.medium} />
         <div className="edit-btn">
           <button onClick={() => setShowEditCard((prev) => !prev)}>
             {showEditCard
@@ -24,8 +26,6 @@ const Card: React.FC<UserProps> = ({ user }) => {
               : ButtonTextCategories.EDIT}
           </button>
         </div>
-        <img src={user.picture.medium} />
-        <p>{user.name.first}</p>
       </div>
 
       {showEditCard ? (

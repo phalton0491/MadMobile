@@ -36,70 +36,66 @@ const EditCard: React.FC<UserChildProps> = ({ user, setShowEditCard }) => {
           setShowEditCard(false);
         }}
       >
-        <div className="contact-into">
-          <input
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              (first.current = e.target.value)
-            }
-            defaultValue={first.current}
-            type="text"
-            name="first"
-          />
-          <input
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              (last.current = e.target.value)
-            }
-            defaultValue={last.current}
-            type="text"
-            name="last"
-          />
-          <input
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              (email.current = e.target.value)
-            }
-            defaultValue={email.current}
-            type="email"
-            name="email"
-          />
-        </div>
-        <div className="location">
-          <input
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              (city.current = e.target.value)
-            }
-            defaultValue={city.current}
-            type="text"
-            name="city"
-          />
-          <input
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              (state.current = e.target.value)
-            }
-            defaultValue={state.current}
-            type="text"
-            name="state"
-          />
-          <input
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              (country.current = e.target.value)
-            }
-            defaultValue={country.current}
-            type="text"
-            name="country"
-          />
-        </div>
-        <div className="submission">
-          <input
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              (phone.current = e.target.value)
-            }
-            defaultValue={phone.current}
-            type="tel"
-            name="phone"
-          />
-          <div />
-          <button>Submit</button>
-        </div>
+        <input
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            (first.current = e.target.value)
+          }
+          defaultValue={first.current}
+          type="text"
+          name="first"
+        />
+        <input
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            (last.current = e.target.value)
+          }
+          defaultValue={last.current}
+          type="text"
+          name="last"
+        />
+        <input
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            (email.current = e.target.value)
+          }
+          defaultValue={email.current}
+          type="email"
+          name="email"
+        />
+
+        <input
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            (city.current = e.target.value)
+          }
+          defaultValue={city.current}
+          type="text"
+          name="city"
+        />
+        <input
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            (state.current = e.target.value)
+          }
+          defaultValue={state.current}
+          type="text"
+          name="state"
+        />
+        <input
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            (country.current = e.target.value)
+          }
+          defaultValue={country.current}
+          type="text"
+          name="country"
+        />
+
+        <input
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            (phone.current = e.target.value)
+          }
+          defaultValue={phone.current}
+          type="tel"
+          name="phone"
+        />
+        <div />
+        <button>Submit</button>
       </form>
     </div>
   );
