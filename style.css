@@ -72,6 +72,20 @@ body {
   border: 2px solid papayawhip;
   border-radius: 5px;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.47);
+}
+
+.main-container
+  > .card-container
+  > .card
+  > .avatar-container
+  > .edit-btn
+  > button {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  color: palevioletred;
+  padding: 5px;
+  font-weight: bolder;
   cursor: pointer;
 }
 
@@ -97,6 +111,64 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.main-container > .card-container > .card > .edit-card-form > form {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.main-container
+  > .card-container
+  > .card
+  > .edit-card-form
+  > form
+  > .submission {
+  text-align: center;
+}
+
+.main-container
+  > .card-container
+  > .card
+  > .edit-card-form
+  > form
+  > .submission
+  > button {
+  margin-top: 10px;
+  background-color: papayawhip;
+  border: 2px solid papayawhip;
+  color: palevioletred;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.main-container
+  > .card-container
+  > .card
+  > .edit-card-form
+  > form
+  > div
+  > input {
+  border-radius: 5px;
+  border: 2px solid papayawhip;
+  color: papayawhip;
+  background-color: palevioletred;
+  margin-bottom: 5px;
+}
+
+.main-container
+  > .card-container
+  > .card
+  > .edit-card-form
+  > form
+  > div
+  > input::-webkit-input-placeholder {
+  color: papayawhip;
+  padding-left: 3px;
 }
 
 .main-container

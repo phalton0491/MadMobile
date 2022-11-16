@@ -17,8 +17,12 @@ const CardContainer = () => {
         displayedUserList.map((user: User) => (
           <Card key={user.cell} user={user} />
         ))
+      ) : !users.length ? (
+        <p>Loading Users..</p>
+      ) : !displayedUserList.length ? (
+        <p>your search is no bueno ;)</p>
       ) : (
-        <div>No Users Found</div>
+        <div>wait for it...</div>
       )}
     </ul>
   );

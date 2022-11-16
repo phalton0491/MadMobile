@@ -57,6 +57,46 @@ export const useProvideUsersContext = () => {
     setDisplayedUserList([...filteredUsers]);
   };
 
+  const editUser = (
+    e: React.FormEvent,
+    first: string,
+    last: string,
+    email: string,
+    city: string,
+    state: string,
+    country: string,
+    phone: string,
+    userId: string
+  ) => {
+    e.preventDefault();
+    let usersCopy = [...users];
+    const findUserToEdit = usersCopy.find(
+      (user: User) => user.id.name === userId
+    );
+    const indexOfUserToEdit = usersCopy.indexOf(findUserToEdit);
+    usersCopy[indexOfUserToEdit] = {
+      ...findUserToEdit,
+      name: {
+        first,
+        last,
+        title: findUserToEdit.name.title,
+      },
+      email,
+      phone,
+      location: {
+        city,
+        Ccordinates: findUserToEdit.location.coodinates,
+        country,
+        postcode: findUserToEdit.location.postcode,
+        state,
+        street: findUserToEdit.location.street,
+        timezone: findUserToEdit.location.timezone,
+      },
+    };
+    setUsers([...usersCopy]);
+    setDisplayedUserList([...usersCopy]);
+  };
+
   return {
     users,
     displayedUserList,
@@ -64,6 +104,7 @@ export const useProvideUsersContext = () => {
     setDisplayedUserList,
     filterUsers,
     sortByCity,
+    editUser,
   };
 };
 
